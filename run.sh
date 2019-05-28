@@ -1,1 +1,1 @@
-java -classpath ./config -jar ./target/EBill.jar
+java -classpath ./config -jar ./target/WebServiceTestApplication.jar
