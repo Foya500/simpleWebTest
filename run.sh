@@ -1,0 +1,1 @@
+java -classpath ./config -jar ./target/EBill.jar
