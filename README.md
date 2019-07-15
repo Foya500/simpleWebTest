@@ -1,9 +1,11 @@
-# CXFWebservice
-CXFWebservice
+# simpleWebTest
+simpleWebTest
 
+Maven 
+JDK 1.8 
 
-Maven JDK 1.8
+set JAVA Envirement
+set Maven Envirement
 
-set JAVA Envirement set Maven Envirement
-
-執行方式: mvn spring-boot:run
+執行方式:
+mvn spring-boot:run

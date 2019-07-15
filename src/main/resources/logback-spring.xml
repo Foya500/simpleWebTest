@@ -19,8 +19,6 @@
         <logger name="com.foya" level="debug"/>
 
     </springProfile>
-    
-    
 
     <!-- 測試 正式 環境 -->
     <springProfile name="dev,test,prod">
@@ -62,45 +60,18 @@
             </filter>
         </appender>
 
-
- 		<appender name="cxf" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <!-- 文件名稱 -->
-                <fileNamePattern>${LOG_HOME}/cxf/cxf.%d{yyyy-MM-dd}.log</fileNamePattern>
-                <!-- 日誌最大的歷史 30天 -->
-                <MaxHistory>30</MaxHistory>
-            </rollingPolicy>
-            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-                <pattern>${PATTERN}</pattern>
-            </encoder>
-            <!--日誌文件最大的大小-->
-            <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-                <MaxFileSize>100MB</MaxFileSize>
-            </triggeringPolicy>
-        </appender>
-        
-        
         <logger name="root" level="WARN">
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR"/>
         </logger>
 
-		
-        <logger name="com.foya" level="INFO">
+        <logger name="com.foya" level="DEBUG">
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR"/>
         </logger>
 
-        <logger name="org.hibernate.SQL" level="DEBUG">
-            <appender-ref ref="FILE"/>
-            <appender-ref ref="ERROR"/>
-        </logger>
+      
 
-
-	   <logger name="org.apache.cxf.services" level="INFO">
-	        <appender-ref ref="cxf"/>
-	   </logger> 
-	   
     </springProfile>
 
 </configuration>
