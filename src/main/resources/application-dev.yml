@@ -1,0 +1,45 @@
+debug: true
+oracle:
+  spring:
+    datasource:
+      driver-class-name: oracle.jdbc.OracleDriver
+      hikari:
+        auto-commit: false
+        connection-test-query: select 1 from dual
+        connection-timeout: 20000
+        idle-timeout: 10000
+        initialization-fail-timeout: 1000
+        max-lifetime: 1000
+        maximum-pool-size: 10
+        minimum-idle: 10
+        pool-name: oraclePool
+      jdbcUrl: jdbc:oracle:thin:@10.1.1.236:1521:CVMS
+      password_encode: foya500
+      username: foya500
+    jpa:
+      show-sql: true
+h2:
+  spring:
+    datasource:
+      driver-class-name: org.h2.Driver
+      hikari:
+        auto-commit: false
+        connection-timeout: 20000
+        idle-timeout: 10000
+        initialization-fail-timeout: 1000
+        max-lifetime: 1000
+        maximum-pool-size: 10
+        minimum-idle: 10
+        pool-name: h2Pool
+      jdbcUrl: jdbc:h2:mem:testh2dbDB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      # use another db exist
+      #url=jdbc:h2:tcp://localhost:9090/mem:mydb
+      username: sa
+      password_encode:
+    jpa:
+      show-sql: true  
+      hibernate:
+        ddl-auto: create
+          
+server:
+  port: 6060
