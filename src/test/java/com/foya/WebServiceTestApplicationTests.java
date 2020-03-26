@@ -1,4 +1,4 @@
-package com.foya.web;
+package com.foya;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
