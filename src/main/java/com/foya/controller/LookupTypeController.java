@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -27,5 +28,8 @@ public class LookupTypeController {
 			return lookupTypeService.findById(lookupType);
 		}
 
-
+		@GetMapping("/dscr")
+		public Collection<LookupType> findByDscr(@RequestParam(value="dscr", defaultValue="") String dscr) {
+			return lookupTypeService.findByDscr(dscr);
+		}
 }
