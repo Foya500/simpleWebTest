@@ -39,4 +39,8 @@ docker run -p 6060:6060 -t foya500/simplewebrest
 | LessThan     | findByAgeLessThan      | ...  where x.age  <  ?1                                     |
 | GreaterThan  | findByAgeGreaterThan   | ...  where x.age > ?1                                       |
 | After/Before | ...                    | ...                                                         |
-| IsNull       | findByAgeIsNull        | ...  where x.age is null                                    |
+| IsNull       | findByAgeIsNull        | ...  where x.age is null
+                                    
+                                    
+ # 產生Entity                  
+ mvn clean org.codehaus.mojo:exec-maven-plugin:java                            |

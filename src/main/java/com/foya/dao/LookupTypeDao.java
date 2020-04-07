@@ -4,17 +4,17 @@ package com.foya.dao;
 
 * */
 
-import com.foya.model.LookupType;
+import com.foya.model.FyTbLookupType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Collection;
 
-public interface LookupTypeDao extends CrudRepository<LookupType, String> {
+public interface LookupTypeDao extends CrudRepository<FyTbLookupType, String> {
 
 
-    Collection<LookupType> findByDscrLike(String dscr);
+    Collection<FyTbLookupType> findByDscrLike(String dscr);
 
-    Page<LookupType> findAll(Pageable pageable);
+    Page<FyTbLookupType> findAll(Pageable pageable);
 
 }

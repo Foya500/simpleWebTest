@@ -2,7 +2,8 @@ package com.foya.service;
 
 
 import com.foya.dao.LookupTypeDao;
-import com.foya.model.LookupType;
+import com.foya.dao.LookupTypeDao;
+import com.foya.model.FyTbLookupType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,24 +21,24 @@ public class LookupTypeService {
     LookupTypeDao lookupTypeDao;
 
 
-    public List<LookupType> findAll(){
+    public List<FyTbLookupType> findAll(){
 
-        List<LookupType> returnList =new ArrayList<>();
+        List<FyTbLookupType> returnList =new ArrayList<>();
         lookupTypeDao.findAll().forEach(returnList::add);
         return returnList;
     }
 
-    public LookupType findById(String lookupTypeId){
-        Optional<LookupType> u= lookupTypeDao.findById(lookupTypeId);
+    public FyTbLookupType findById(String FyTbLookupTypeId){
+        Optional<FyTbLookupType> u= lookupTypeDao.findById(FyTbLookupTypeId);
         return u.get();
     }
 
-    public Collection<LookupType>  findByDscr(String dscr){
-        Collection<LookupType> u= lookupTypeDao.findByDscrLike(dscr);
+    public Collection<FyTbLookupType>  findByDscr(String dscr){
+        Collection<FyTbLookupType> u= lookupTypeDao.findByDscrLike(dscr);
         return u;
     }
 
-    public Page<LookupType> findAll(Pageable pageable){
+    public Page<FyTbLookupType> findAll(Pageable pageable){
 ;
         return lookupTypeDao.findAll(pageable);
 

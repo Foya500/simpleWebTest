@@ -69,7 +69,9 @@
 			<artifactId>jstl</artifactId>
 			<scope>provided</scope>
 		</dependency>
-	
+
+
+
 </dependencies>
 
 	<build>
@@ -78,6 +80,67 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<mainClass>org.apache.openjpa.jdbc.meta.ReverseMappingTool</mainClass>
+					<arguments>
+						<argument>-directory</argument>
+						<argument>target/generated-sources/java</argument> <!-- or target/generated/model -->
+						<argument>-accessType</argument>
+						<argument>fields</argument>
+						<argument>-useGenericCollections</argument>
+						<argument>true</argument>
+						<argument>-package</argument>
+						<argument>com.foya.model</argument>
+						<argument>-innerIdentityClasses</argument>
+						<argument>false</argument>
+						<argument>-useBuiltinIdentityClass</argument>
+						<argument>false</argument>
+						<argument>-primaryKeyOnJoin</argument>
+						<argument>false</argument>
+						<argument>-annotations</argument>
+						<argument>true</argument>
+						<argument>-p</argument>
+						<argument>src/main/resources/META-INF/persistence.xml</argument>
+						<argument>-nullableAsObject</argument>
+						<argument>false</argument>
+						<argument>-schemas</argument>
+						<argument>BT3500.FY_TB_FILE_CNTRL,BT3500.FY_TB_FILE_INFO,BT3500.FY_TB_LOOKUP_CDE,BT3500.FY_TB_LOOKUP_TYPE,BT3500.FY_TB_TRANSACTION</argument>
+
+					</arguments>
+					<includePluginDependencies>true</includePluginDependencies>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.oracle</groupId>
+						<artifactId>ojdbc7</artifactId>
+						<version>12.1.0.2</version>
+					</dependency>
+					<dependency>
+						<groupId>javax.validation</groupId>
+						<artifactId>validation-api</artifactId>
+						<version>1.1.0.Final</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.openjpa</groupId>
+						<artifactId>openjpa-all</artifactId>
+						<version>2.4.1</version>
+					</dependency>
+
+
+
+				</dependencies>
+			</plugin>
+
+
+
 		</plugins>
 	</build>
 
@@ -111,5 +174,7 @@
 			<url>https://repo.spring.io/milestone</url>
 		</pluginRepository>
 	</pluginRepositories>
+
+
 
 </project>

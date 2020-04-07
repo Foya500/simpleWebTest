@@ -1,6 +1,6 @@
 package com.foya.controller;
 
-import com.foya.model.LookupType;
+import com.foya.model.FyTbLookupType;
 import com.foya.service.LookupTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,17 +23,17 @@ public class LookupTypeController {
 		LookupTypeService lookupTypeService;
 
 	    @GetMapping("/findAll")
-	    public List<LookupType> findAll() {
+	    public List<FyTbLookupType> findAll() {
 	       return lookupTypeService.findAll();
 	    }
 
 		@GetMapping("/findById")
-		public LookupType findById(@RequestParam(value="lookupType", defaultValue="") String lookupType) {
+		public FyTbLookupType findById(@RequestParam(value="lookupType", defaultValue="") String lookupType) {
 			return lookupTypeService.findById(lookupType);
 		}
 
 		@GetMapping("/dscr")
-		public Collection<LookupType> findByDscr(@RequestParam(value="dscr", defaultValue="") String dscr) {
+		public Collection<FyTbLookupType> findByDscr(@RequestParam(value="dscr", defaultValue="") String dscr) {
 			return lookupTypeService.findByDscr(dscr);
 		}
 
@@ -47,7 +47,7 @@ public class LookupTypeController {
 		*
 		* */
 	@GetMapping("/findAllByPageable")
-	public Page<LookupType> findAllByPageable(@PageableDefault(value = 15, sort = { "lookupType" }, direction = Sort.Direction.DESC)
+	public Page<FyTbLookupType> findAllByPageable(@PageableDefault(value = 15, sort = { "lookupType" }, direction = Sort.Direction.DESC)
 													  Pageable pageable) {
 		return lookupTypeService.findAll(pageable);
 	}
