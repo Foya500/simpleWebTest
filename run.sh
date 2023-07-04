@@ -1,1 +1,0 @@
-java -classpath ./config -jar ./target/WebServiceTestApplication.jar
